@@ -1,4 +1,4 @@
-# asdfasdf. Reverse Binary Tree
+# 226. Invert Binary Tree
 # https://leetcode.com/problems/invert-binary-tree
 
 #Pretty happy with this, came quickly
