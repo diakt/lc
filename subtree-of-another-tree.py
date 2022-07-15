@@ -49,5 +49,51 @@ class Solution(object):
         print("here")
         return found
         
+#took another shot at it
+#who could have known, defining a function within a recursive function takes memory
+# how did I graduate
+# ~60 rt, ~40 mem    
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def isSubtree(self, root, subRoot):
+        """
+        :type root: TreeNode
+        :type subRoot: TreeNode
+        :rtype: bool
+        """
+    
+        if not subRoot:
+            return True
+        
+        elif not root:
+            return False
             
+        elif root and subRoot:
+            if self.isSame(root, subRoot):
+                return True
+            else:
+                return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot) 
             
+    
+    
+    def isSame(self, root, subRoot):
+        
+        if root is None and subRoot is None:
+            return True
+        if root is None and subRoot is not None:
+            return False
+        if root is not None and subRoot is None:
+            return False
+        else:
+            if root.val == subRoot.val:
+                return self.isSame(root.left, subRoot.left) and self.isSame(root.right, subRoot.right)
+            else:
+                return False
+            
+        
